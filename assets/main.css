@@ -1,0 +1,18 @@
+:root {
+  --primary: #343539;
+  --secondary: rgba(52, 53, 57, 0.59);
+  --teks: rgba(52, 53, 57, 1);
+  --teksAbu: rgba(52, 53, 57, 0.55);
+  --greenBg: rgba(76, 222, 126, 1);
+  --redBg: rgba(205, 77, 77, 1);
+}
+
+.teks-primary {
+  color: var(--primary);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.teks-second {
+  color: var(--secondary);
+  font-family: 'Open Sans', sans-serif;
+}
