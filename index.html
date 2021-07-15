@@ -8,7 +8,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;1,500&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;1,500&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 
   <!-- Bootstrap v5 -->
   <link rel="stylesheet" href="assets/library/bootstrap.css">
@@ -25,7 +25,7 @@
       <div class="row mt-5">
         <div class="col-sm">
           <div class="title-section">
-            <h1 class="teks-primary fw-bold">Notes Quickly</h1>
+            <h1 class="teks-primary title">Notes Quickly &#10024</h1>
           </div>
         </div>
       </div>
@@ -42,18 +42,58 @@
 
       <form id="notes-form" class="mt-4">
         <div class="mb-3">
-          <label for="note" class="form-label">Tambahkan Catatan Baru</label>
+          <label for="note" class="form-label label-teks">Tambahkan Catatan Baru</label>
           <input type="text" class="form-control" id="note" placeholder="Makan malam, Jemput anak, ....">
         </div>
         <div class="mb-4">
-          <label for="label" class="form-label">Beri Label</label>
-          <input type="text" class="form-control" id="label" placeholder="Ide, Janji, Pengigat, ....">
+          <label for="label" class="form-label label-teks">Beri Label</label>
+          <input type="text" class="form-control" id="label" placeholder="Ide, Janji, Pengingat, ....">
         </div>
 
-        <input type="submit" value="Tambahkan" class="btn btn-success btn-tambah" style="width: 100%;"><span></span>
+        <button type="submit" class="btn btn-success btn-tambah" style="width: 100%;">Tambahkan<span><img src="assets/icons/icon nulis.svg" alt="icons" class="img-fluid icon-pen"></span></button>
       </form>
 
+      <br>
+      <hr>
 
+      <section class="notes-section mt-4">
+        <div class="row">
+          <div class="col-sm">
+            <div class="title-section">
+              <h2 class="subtitle teks-primary">Catatan Kamu</h2>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="notes row">
+          <div class="col-6">
+            <div class="card note">
+              <div class="card-body">
+                <h5 class="teks-primary">Makan Malam</h5>
+                <p class="label teks-second">Pengingat</p>
+                <button class="btn btn-hapus btn-danger" style="width: 100%;">Hapus</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="card note">
+              <div class="card-body">
+                <h5 class="teks-primary">Makan Malam</h5>
+                <p class="label teks-second">Pengingat</p>
+                <button class="btn btn-hapus btn-danger" style="width: 100%;">Hapus</button>
+              </div>
+            </div>
+          </div>
+          
+          
+
+
+        </div>
+
+
+      </section>
 
     </div>
   </main>
