@@ -7,11 +7,8 @@ class Notes {
   }
 }
 
-const note = new Notes('Makan', 'janji');
-console.log(note);
 
 // UI
-// add
 class UI {
 
   // static displayNotes() {
@@ -30,7 +27,7 @@ class UI {
     colElem.innerHTML = `
     <div class="card note">
       <div class="card-body">
-        <h5 class="teks-primary">${notes.taks}</h5>
+        <h5 class="teks-primary title-note">${notes.taks}</h5>
         <p class="label teks-second">${notes.label}</p>
         <button class="btn btn-hapus btn-danger" style="width: 100%;">Hapus</button>
       </div>
@@ -43,15 +40,64 @@ class UI {
 
   }
 
+  static removeNotes(elem) {
 
+    if(elem.classList.contains('btn-hapus')) {
 
+      // delete pake dom Transversal
+      elem.parentNode.parentNode.parentNode.remove()
 
+    }
+
+  }
+
+  static clearFields() {
+
+    // get value
+    const note = document.getElementById('note').value = '';
+    const label = document.getElementById('label').value = '';
+
+  }
 
 
 }
 
 
-//storage
+//// Storage
+
+class Store {
+
+  static getStorage(){
+
+    let notes;
+    // checks
+    if(localStorage.getItem('notes') === null) {
+      notes = [];
+    } else {
+      notes = JSON.parse(localStorage.getItem('notes'));
+    }
+
+
+    // array 
+    return notes;
+
+  }
+
+  static addNotesStore(note) {
+
+    // get array notes
+    let notes = Store.getStorage();
+
+    // isi yg baru
+    notes.push(note);
+
+    //save it
+    localStorage.setItem('notes', JSON.stringify(notes));
+    console.log(notes);
+
+  }
+
+}
 
 
 /// Event Add
@@ -64,12 +110,26 @@ notesForm.addEventListener('submit', function(evt) {
   const note = document.getElementById('note').value;
   const label = document.getElementById('label').value;
 
-  // jadikan data nya
-  const notes = new Notes(note, label);
+  // validate
+  if(note === '' || label === '') {
+    alert('gabisa kosong maap');
+  } else {
 
-  // add
-  UI.addNotes(notes);
+    // create instance / object
+    const newNotes = new Notes(note, label);
 
+    // add
+    UI.addNotes(newNotes);
+
+    // store
+    Store.addNotesStore(newNotes);
+
+    // clear
+    UI.clearFields();
+
+  }
+
+  
 
 })
 
@@ -81,6 +141,7 @@ const allNotes = document.getElementById('all-notes');
 allNotes.addEventListener('click', function(evt) {
 
 
+  // remove
   UI.removeNotes(evt.target)
 
   // console.log(evt.target);

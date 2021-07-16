@@ -49,6 +49,11 @@
 .btn-tambah:hover span img {
   filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(320deg) brightness(103%) contrast(101%);
 }
+
+.btn-hapus {
+  margin-top: 10px;
+  border-radius: 8px;
+}
  
 
 .subtitle {
@@ -62,6 +67,7 @@
 
 #all-notes .title-note {
   font-size: 19px;
+  font-weight: 600;
 }
 
 #all-notes .label {
