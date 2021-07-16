@@ -54,3 +54,16 @@
 .subtitle {
   font-weight: 600;
 }
+
+
+#all-notes {
+  margin-top: 18px;
+}
+
+#all-notes .title-note {
+  font-size: 19px;
+}
+
+#all-notes .label {
+  font-size: 15px;
+}
