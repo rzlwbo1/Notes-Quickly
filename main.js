@@ -1,7 +1,7 @@
 
 // Notes Class
 class Notes {
-  constructor(taks, label) {
+  constructor(taks, label, id) {
     this.taks = taks;
     this.label = label;
   }
@@ -11,9 +11,16 @@ class Notes {
 // UI
 class UI {
 
-  // static displayNotes() {
+  static displayNotes() {
 
-  // }
+    // display notes from storage
+
+    const notes = Store.getStorage();
+
+    notes.forEach((note) => UI.addNotes(note))
+    console.log(notes);
+
+  }
 
   static addNotes(notes) {
 
@@ -97,7 +104,31 @@ class Store {
 
   }
 
+  static removeNotesStore(elemNote) {
+
+    // get array notes
+    let notes = Store.getStorage();
+
+    // get taks
+    const taks = elemNote.previousElementSibling.previousElementSibling.textContent;
+
+    notes.forEach((n, index) => {
+      if(taks == n.taks) {
+        notes.splice(index, 1);
+      }
+    })
+    
+    localStorage.setItem('notes', JSON.stringify(notes));
+    console.log(taks);
+
+  }
+
 }
+
+
+
+//// Event Display
+document.addEventListener("DOMContentLoaded", UI.displayNotes());
 
 
 /// Event Add
@@ -144,7 +175,9 @@ allNotes.addEventListener('click', function(evt) {
   // remove
   UI.removeNotes(evt.target)
 
+  // remove from storage
+  Store.removeNotesStore(evt.target)
+
   // console.log(evt.target);
 
 })
-
