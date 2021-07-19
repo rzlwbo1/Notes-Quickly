@@ -32,7 +32,7 @@ class UI {
     colElem.className = 'col-6 mb-4';
 
     colElem.innerHTML = `
-    <div class="card note">
+    <div class="card note shadow-sm">
       <div class="card-body">
         <h5 class="teks-primary title-note">${notes.taks}</h5>
         <p class="label teks-second">${notes.label}</p>
